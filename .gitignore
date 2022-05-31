@@ -2,3 +2,9 @@ data/
 .ipynb_checkpoints
 .bin
 models
+exp-tracking-env/
+output/
+mlruns/
+.vscode/
+images/
+running-mlflow-examples/

@@ -77,7 +77,7 @@ def run(data_path, log_top):
     run_id = best_run.info.run_id
     run_id = best_run.info.run_id
     model_uri = f"runs:/{run_id}/model"
-    mlflow.register_model(model_uri=model_uri, name="nyc-taxi-rfRegressor ")
+    mlflow.register_model(model_uri=model_uri, name="nyc-taxi-rfRegressor")
 
 
 if __name__ == '__main__':
