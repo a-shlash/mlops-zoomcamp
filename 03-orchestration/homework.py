@@ -120,7 +120,7 @@ def run_model(df, categorical, dv, lr):
 
 
 @flow(task_runner=SequentialTaskRunner())
-def main(date):
+def main(date="2021-08-15"):
 
     categorical = ['PUlocationID', 'DOlocationID']
 
@@ -142,17 +142,19 @@ def main(date):
 
 
 from prefect.deployments import DeploymentSpec
-from prefect.orion.schemas.schedules import IntervalSchedule
+from prefect.orion.schemas.schedules import CronSchedule
 from prefect.flow_runners import SubprocessFlowRunner
 from datetime import timedelta
 
 DeploymentSpec(
-    flow=main(date="2021-08-15"),
-    name="model_training",
-    schedule=IntervalSchedule(interval=timedelta(minutes=5)),
+    flow=main,
+    name="deployment_week3",
+    schedule=CronSchedule(cron="0 9 15 * *"),
     flow_runner=SubprocessFlowRunner(),
     tags=["mlops"]
 )
+
+
 
 
 
