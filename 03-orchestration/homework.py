@@ -137,6 +137,7 @@ def main(date="2021-08-15"):
     
     # save dictvectorizer
     dump_pickle(dv, os.path.join("./outbut", "dv.pkl"))
+    dump_pickle(lr, os.path.join("./outbut", "lr.pkl"))
     run_model(df_val_processed, categorical, dv, lr)
 
 
